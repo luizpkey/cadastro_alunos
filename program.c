@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <locale.h>
 
 //===============================================================================//
 // Estrutura de Aluno
@@ -64,7 +63,7 @@ int Menu()
                      };
    int n;
    clear();
-   printf("Escolha uma opção: \n");
+   printf("Escolha uma opcao: \n"); 
    for (n = 0; n < 4; n++)
    {
       printf("%d - %s\n", menu[n].opcao, menu[n].descricao);
@@ -111,14 +110,14 @@ int CadastraAluno(Aluno *alunos, int sequencial)
          for (n=0;n<=sequencial;n++){
             aluno = &alunos[n];
             if(aluno->RA==RA){
-               printf("RA já informado!\n");
+               printf("RA ja informado!\n");
                pause();
                RA=0;
                break;
             }
          }
       }else{
-         printf("RA inválido!\n");
+         printf("RA invalido!\n"); 
          pause();         
       }
    }
@@ -127,7 +126,7 @@ int CadastraAluno(Aluno *alunos, int sequencial)
    scanf("%[^\n]", &nome);
    flush_in();
 
-   printf("Endereço: ");
+   printf("Endereco: ");
    scanf("%[^\n]", &endereco);
    flush_in();
 
@@ -180,7 +179,7 @@ void listarAlunos( Aluno *alunos, int quantidadeDeAlunos)
       aluno = &alunos[n];
       printf("RA: %d\n", aluno->RA);
       printf("Nome: %s\n", aluno->nome);
-      printf("Endereço: %s\n", aluno->endereco);
+      printf("Endereco: %s\n", aluno->endereco);
       printf("Curso: %s\n\n", aluno->curso);
    }
    pause();
@@ -215,7 +214,7 @@ void AlteraAluno(Aluno *alunos, int quantidadeDeAlunos)
          aluno = &alunos[n];
          if (aluno->RA == RA)
          {
-            printf("\nNome: %s: Digit o novo nome[branco não altera]: ", aluno->nome);
+            printf("\nNome: %s: Digit o novo nome[branco nao altera]: ", aluno->nome);
             scanf("%[^\n]", &nome);
             flush_in();
    
@@ -223,7 +222,7 @@ void AlteraAluno(Aluno *alunos, int quantidadeDeAlunos)
             {
                strcpy( &aluno->nome, nome);
             }
-            printf("\nEndereço: %s: Digite o novo endereço[branco não altera]: ", aluno->endereco);
+            printf("\nEndereco: %s: Digite o novo endereco[branco nao altera]: ", aluno->endereco);
             scanf("%[^\n]", &endereco);
             flush_in();
    
@@ -231,7 +230,7 @@ void AlteraAluno(Aluno *alunos, int quantidadeDeAlunos)
             {
                strcpy(aluno->endereco, endereco);
             }
-            printf("\nCurso: %s: Digite o novo curso[branco não altera]: ", aluno->curso);
+            printf("\nCurso: %s: Digite o novo curso[branco nao altera]: ", aluno->curso);
             scanf("%[^\n]", &curso);
             flush_in();
    
@@ -258,8 +257,6 @@ int main( int argc, char *argv[] )
    int quantidadeDeAlunos, sequencial = 0;
    int opcao = 0;
 
-   setlocale(LC_ALL, NULL);
-   setlocale(LC_ALL, "");
    clear();
    printf("Quantidade de alunos deseja cadastrar? ");
    scanf("%d", &quantidadeDeAlunos);
@@ -271,7 +268,7 @@ int main( int argc, char *argv[] )
       aluno = &alunos[n];
       aluno->RA = 0;
       strcpy(aluno->nome, "Aluno ");
-      strcpy(aluno->endereco, "Endereço ");
+      strcpy(aluno->endereco, "Endereco ");
       strcpy(aluno->curso, "Curso ");
    }
 
@@ -288,7 +285,7 @@ int main( int argc, char *argv[] )
          listarAlunos(alunos, quantidadeDeAlunos);
       }else
       {
-         printf("Opção Inválida!");
+         printf("Opcao Invalida!");
       }
 
    }
