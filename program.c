@@ -124,15 +124,15 @@ int CadastraAluno(Aluno *alunos, int sequencial)
    }
 
    printf("Nome: ");
-   scanf("%s", &nome);
+   scanf("%[^\n]", &nome);
    flush_in();
 
    printf("Endereço: ");
-   scanf("%s", &endereco);
+   scanf("%[^\n]", &endereco);
    flush_in();
 
    printf("Curso: ");
-   scanf("%s", &curso);
+   scanf("%[^\n]", &curso);
    flush_in();
 
    // Confirmação de inclusão
@@ -216,7 +216,7 @@ void AlteraAluno(Aluno *alunos, int quantidadeDeAlunos)
          if (aluno->RA == RA)
          {
             printf("\nNome: %s: Digit o novo nome[branco não altera]: ", aluno->nome);
-            scanf("%s", &nome);
+            scanf("%[^\n]", &nome);
             flush_in();
    
             if (strlen(nome) > 0)
@@ -224,7 +224,7 @@ void AlteraAluno(Aluno *alunos, int quantidadeDeAlunos)
                strcpy( &aluno->nome, nome);
             }
             printf("\nEndereço: %s: Digite o novo endereço[branco não altera]: ", aluno->endereco);
-            scanf("%s", &endereco);
+            scanf("%[^\n]", &endereco);
             flush_in();
    
             if (strlen(endereco) > 0)
@@ -232,7 +232,7 @@ void AlteraAluno(Aluno *alunos, int quantidadeDeAlunos)
                strcpy(aluno->endereco, endereco);
             }
             printf("\nCurso: %s: Digite o novo curso[branco não altera]: ", aluno->curso);
-            scanf("%s", &curso);
+            scanf("%[^\n]", &curso);
             flush_in();
    
             if (strlen(curso) > 0)
